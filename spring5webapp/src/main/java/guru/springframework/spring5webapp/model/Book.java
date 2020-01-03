@@ -16,7 +16,7 @@ public class Book {
 
     //Column is called publisher_name, we fill it in with the appropriate names from Publisher
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "publisher_name", referencedColumnName = "name")
+    @JoinColumn(name = "publisher_name", referencedColumnName = "name") //GURU implementation slightly different ep20
     private Publisher publisher;
 
     @ManyToMany

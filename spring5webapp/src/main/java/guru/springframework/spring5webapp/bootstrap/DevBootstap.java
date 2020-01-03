@@ -33,9 +33,13 @@ public class DevBootstap implements ApplicationListener<ContextRefreshedEvent> {
     }
 
     private void initData() {
+        Publisher harperCollins = new Publisher("Harper Collins", "New York", "262011");
+        Publisher worx = new Publisher("Worx", "Seattle", "10444");
+        publisherRepository.save(harperCollins);
+        publisherRepository.save(worx);
+
         //Eric
         Author eric = new Author("Eric", "Evans");
-        Publisher harperCollins = new Publisher("Harper Collins", "New York", "262011");
         Book ddd = new Book("Domain Driven Design", "1234", harperCollins);
         eric.getBooks().add(ddd);
         ddd.getAuthors().add(eric);
@@ -45,18 +49,15 @@ public class DevBootstap implements ApplicationListener<ContextRefreshedEvent> {
         * Spring will get this information into Hibernate H2 (the database) for us.
         * Black magic... */
         authorRepository.save(eric);
-        //publisherRepository.save(harperCollins); //Works without, but not with
         bookRepository.save(ddd);
 
         //Rod
         Author rod = new Author("Rod", "Johnson");
-        Publisher worx = new Publisher("Worx", "Seattle", "10444");
         Book noEJB = new Book("J2EE Development without EJB", "23444", worx);
         rod.getBooks().add(noEJB);
         noEJB.getAuthors().add(rod);
 
         authorRepository.save(rod);
-        //publisherRepository.save(worx);
         bookRepository.save(noEJB);
     }
 
