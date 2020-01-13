@@ -14,9 +14,7 @@ public class Book {
     private String title;
     private String isbn;
 
-    //Column is called publisher_name, we fill it in with the appropriate names from Publisher
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "publisher_name", referencedColumnName = "name") //GURU implementation slightly different ep20
+    @OneToOne //Removed @JoinColumn because it caused issues with the book controller and Thymeleaf
     private Publisher publisher;
 
     @ManyToMany

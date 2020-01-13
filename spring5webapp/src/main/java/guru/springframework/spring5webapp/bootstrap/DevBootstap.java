@@ -33,9 +33,15 @@ public class DevBootstap implements ApplicationListener<ContextRefreshedEvent> {
     }
 
     private void initData() {
-        Publisher harperCollins = new Publisher("Harper Collins", "New York", "262011");
-        Publisher worx = new Publisher("Worx", "Seattle", "10444");
-        publisherRepository.save(harperCollins);
+        Publisher harperCollins = new Publisher();
+        harperCollins.setName("Harper Collins");
+        harperCollins.setCityName("New York");
+        harperCollins.setZipCode("26012");
+        Publisher worx = new Publisher();
+        worx.setName("Worx");
+        worx.setCityName("Washington");
+        worx.setZipCode("10023");
+        publisherRepository.save(harperCollins); //Does not work with these
         publisherRepository.save(worx);
 
         //Eric

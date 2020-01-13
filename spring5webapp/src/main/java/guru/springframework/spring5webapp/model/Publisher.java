@@ -16,14 +16,9 @@ public class Publisher {
     private String cityName;
     private String zipCode;
 
-    public Publisher() {
-    }
-
-    public Publisher(String name, String cityName, String zipCode) {
-        this.name = name;
-        this.cityName = cityName;
-        this.zipCode = zipCode;
-    }
+    /*
+    * Removed constructor because DevBootstrap couldn't save the repository otherwise
+    */
 
     public Long getId() {
         return id;
